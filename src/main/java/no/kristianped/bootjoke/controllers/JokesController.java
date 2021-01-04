@@ -1,6 +1,7 @@
 package no.kristianped.bootjoke.controllers;
 
 import no.kristianped.bootjoke.services.JokeService;
+import no.kristianped.bootjoke.services.JokeServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ public class JokesController {
         this.jokeService = jokeService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping({"/", ""})
     public String getJoke(Model model) {
         model.addAttribute("joke", jokeService.getJoke());
 
